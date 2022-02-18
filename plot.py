@@ -19,6 +19,7 @@ def plot_df(df, groupby, compare, X, Y):
 paths = {
     "TF-QUIET": "tongfang-quiet.csv",
     "TF-PERF": "tongfang-performance.csv",
+    "LEGION_PERF": "legion-performance.csv",
 }
 
 dfs = []
