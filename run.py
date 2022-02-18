@@ -31,9 +31,9 @@ bench_models = {
     "WRN16-4": lambda s, c: models.ResNet(input_shape=s,
                                           n_classes=c,
                                           version="WRN16-4"),
-    "WRN28-10": lambda s, c: models.ResNet(input_shape=s,
+    "WRN16-8": lambda s, c: models.ResNet(input_shape=s,
                                            n_classes=c,
-                                           version="WRN28-10"),
+                                           version="WRN16-8"),
 }
 bench_batch_sizes = [32, 64, 128, 256, 512, 1024]
 
