@@ -6,12 +6,13 @@ import models
 import training
 import pandas as pd
 
-NUM_EXAMPLES = 512
+NUM_EXAMPLES = 2000
 NUM_EPOCHS = 5
 
 bench_datasets = {
     "MNIST": datasets.get_mnist,
     "CIFAR10": datasets.get_cifar,
+    "64x64x3": datasets.get_random,
 }
 bench_models = {
     "DATA PROCESSING": lambda s, c: None,
@@ -21,12 +22,18 @@ bench_models = {
     "VGG16": lambda s, c: models.VGG(input_shape=s,
                                      n_classes=c,
                                      version=16),
+    "ResNet-20": lambda s, c: models.ResNet(input_shape=s,
+                                            n_classes=c,
+                                            version=20),
     "ResNet-56": lambda s, c: models.ResNet(input_shape=s,
                                             n_classes=c,
                                             version=56),
     "WRN16-4": lambda s, c: models.ResNet(input_shape=s,
                                           n_classes=c,
                                           version="WRN16-4"),
+    "WRN28-10": lambda s, c: models.ResNet(input_shape=s,
+                                           n_classes=c,
+                                           version="WRN28-10"),
 }
 bench_batch_sizes = [32, 64, 128, 256, 512, 1024]
 
@@ -75,4 +82,4 @@ time_df = pd.DataFrame(
     columns=["DS", "BS", "MODEL", "TRAIN_SPE", "VALID_SPE"]
 )
 
-time_df.to_csv("tongfang-performance.csv")
+# time_df.to_csv("tongfang-performance.csv")
