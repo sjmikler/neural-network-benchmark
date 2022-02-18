@@ -35,7 +35,7 @@ bench_models = {
                                           n_classes=c,
                                           version="WRN16-8"),
 }
-bench_batch_sizes = [32, 64, 128, 256, 512, 1024]
+bench_batch_sizes = [32, 64, 128, 256]
 
 
 def _run(model_name, ds_name, bs, msg=""):
