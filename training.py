@@ -53,7 +53,7 @@ def run(model, train_ds, valid_ds, n_iter=None, n_epoch=1, lr=0.01, momentum=0.9
         return loss_metric.result(), accu_metric.result()
 
     # WARMUP
-    warmup_iter = min(5, n_iter)
+    warmup_iter = min(5, n_iter) if n_iter else 5
     train_epoch(train_ds, n_iter=warmup_iter)
     if valid_ds:
         valid_epoch(valid_ds, n_iter=warmup_iter)

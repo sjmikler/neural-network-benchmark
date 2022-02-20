@@ -75,7 +75,10 @@ print("RUNNING IN RANDOM ORDER")
 shuffle(inputs)
 for idx, inp in enumerate(inputs):
     msg = f"{idx + 1:<4} / {len(inputs):<4}"
-    all_times.append(_run(*inp, msg))
+    try:
+        all_times.append(_run(*inp, msg))
+    except:
+        print(f"FAILED {inp} {msg}")
 
 time_df = pd.DataFrame(
     all_times,
